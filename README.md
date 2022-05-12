@@ -1,6 +1,6 @@
 # Apartment_Catalog
 
-This is simple CRUD application for add, edit, read, delete apartment objects.
+This is simple CRUD application for adding, editting, reading, deleting apartment objects.
 App is under development.
 
 Technology stack:
