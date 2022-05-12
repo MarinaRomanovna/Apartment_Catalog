@@ -4,14 +4,24 @@ This is simple CRUD application for add, edit, read, delete apartment objects.
 App is under development.
 
 Technology stack:
+
 -MVVM
+
 -ViewBinding
+
 -RXJava3
+
 -Dagger 2
+
 -Room
+
 -Kotlin Flows
+
 -Cicerone
+
 -Material Design.
+
+Screenshots:
 
 ![Screenshot_1652338525](https://user-images.githubusercontent.com/89345780/168013142-9829f2fc-4dbf-4086-950d-5874711f24cd.png)
 ![Screenshot_1652338500](https://user-images.githubusercontent.com/89345780/168013165-3fcb3e14-262f-41dc-8a17-881d8f1b194d.png)
