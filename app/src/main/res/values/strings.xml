@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Apartment Catalog</string>
+    <string name="entry">Войти</string>
+    <string name="add_apartment">Добавить квартиру</string>
+    <string name="exit_app">Выйти из приложения</string>
+    <string name="photo_desc">Фото квартиры</string>
+    <string name="rubles_symbol">₽</string>
+    <string name="sq_meters">м²</string>
+    <string name="label_of_rooms">Комнат</string>
+    <string name="label_of_square">Площадь, м²</string>
+    <string name="label_of_floor">Этаж</string>
+    <string name="price_per_sqmeter">Цена за м², ₽</string>
+    <string name="edit_apartment">Редактировать</string>
+    <string name="empty_list">Список пуст</string>
+    <string name="retry">ПОВТОРИТЬ</string>
+    <string name="error">Ошибка загрузки</string>
+    <string name="label_address">Адрес</string>
+    <string name="label_rooms">Количество комнат</string>
+    <string name="label_of_price">Цена</string>
+    <string name="label_of_photo">Фото квартиры</string>
+    <string name="logo">Логотип входа</string>
+    <string name="app_name_ru">Каталог квартир</string>
+    <string name="save">Сохранить</string>
+    <string name="msg_fill_all_fields">Заполните все поля</string>
+    <string name="msg_error_fields_not_filled">Не все поля заполнены</string>
+    <string name="msg_error_add_edit_state">Что-то пошло не так</string>
+    <string name="msg_success_editting">Объект успешно отредактирован</string>
+    <string name="msg_success_adding">Объект добавлен</string>
+    <string name="msg_entering">Войдите\nдля\nпродолжения</string>
+</resources>
