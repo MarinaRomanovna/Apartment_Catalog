@@ -9,13 +9,13 @@
     <ImageView
         android:id="@+id/image_view_logo"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="260dp"
+        android:contentDescription="@string/logo"
         android:scaleType="fitStart"
-        app:srcCompat="@drawable/login_bg_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/logo" />
+        app:srcCompat="@drawable/login_bg_img" />
 
     <TextView
         android:id="@+id/tv_app_name"
@@ -41,17 +41,144 @@
         app:layout_constraintStart_toStartOf="@id/image_view_logo"
         app:layout_constraintTop_toBottomOf="@+id/tv_app_name" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_login"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/hint_login"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxStrokeWidth="3dp"
+        app:expandedHintEnabled="false"
+        app:layout_constraintBottom_toTopOf="@id/til_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:placeholderText="@string/msg_enter_number_phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_login"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:inputType="phone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/hint_password"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxStrokeWidth="3dp"
+        app:endIconMode="password_toggle"
+        app:expandedHintEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_login"
+        app:placeholderText="@string/msg_enter_password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:imeOptions="actionDone"
+            android:inputType="numberPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_login_error"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center_vertical"
+        android:visibility="invisible"
+        android:text="@string/error_login_password"
+        android:textColor="?attr/colorError"
+        app:drawableStartCompat="@android:drawable/stat_notify_error"
+        app:drawableTint="@color/design_default_color_error"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_password" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_rem_user"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:checked="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_error" />
+
+    <TextView
+        android:id="@+id/tv_login_rem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/tv_remember_me"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_rem_user"
+        app:layout_constraintStart_toEndOf="@+id/switch_rem_user"
+        app:layout_constraintTop_toTopOf="@+id/switch_rem_user" />
+
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/tv_forgot_password"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_rem_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/switch_rem_user" />
+
+    <TextView
+        android:id="@+id/tv_signup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/tv_sign_up"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_rem_user" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cornerRadius="8dp"
-        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:paddingStart="32dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="8dp"
         android:text="@string/entry"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:textStyle="bold"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
