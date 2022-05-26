@@ -24,7 +24,7 @@ class ApartmentDetailViewModel @Inject constructor(
     val state: StateFlow<ApartmentDetailState> = _state.asStateFlow()
 
     fun onEditClick(apartmentId: Int) {
-        router.navigateTo(screenOpener.navigateToEditApartmentDetailFragment(apartmentId))
+        router.replaceScreen(screenOpener.navigateToEditApartmentDetailFragment(apartmentId))
     }
 
     fun getApartmentDetail(apartmentId: Int) {

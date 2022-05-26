@@ -24,12 +24,12 @@
     <string name="msg_fill_all_fields">Заполните все поля</string>
     <string name="msg_error_fields_not_filled">Не все поля заполнены</string>
     <string name="msg_error_add_edit_state">Что-то пошло не так</string>
-    <string name="msg_success_editting">Объект успешно отредактирован</string>
+    <string name="msg_success_editing">Объект успешно отредактирован</string>
     <string name="msg_success_adding">Объект добавлен</string>
     <string name="msg_entering">Войдите\nдля\nпродолжения</string>
     <string name="hint_login">ЛОГИН</string>
     <string name="hint_password">ПАРОЛЬ</string>
-    <string name="msg_enter_number_phone">Введите номер телефона</string>
+    <string name="msg_enter_number_email">Введите адрес эл. почты</string>
     <string name="msg_enter_password">Введите пароль</string>
     <string name="error_login_password">Неверный логин или пароль</string>
     <string name="tv_remember_me">Запомнить меня</string>

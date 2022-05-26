@@ -1,4 +1,4 @@
-package com.marina_romanovna.apartmentcatalog.data
+package com.marina_romanovna.apartmentcatalog.data.repositories
 
 import com.marina_romanovna.apartmentcatalog.data.database.ApartmentListDao
 import com.marina_romanovna.apartmentcatalog.data.mappers.ApartmentMapper

@@ -16,7 +16,8 @@ import dagger.Component
     modules = [
         DataModule::class,
         CiceroneModule::class,
-        RoomModule::class
+        RoomModule::class,
+        NetworkModule::class
     ]
 )
 interface ApplicationComponent {

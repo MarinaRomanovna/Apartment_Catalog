@@ -165,7 +165,7 @@ class AddEditApartmentItemFragment : Fragment(R.layout.add_edit_apartment_item_f
                 with(binding) {
                     circularLoader.isVisible = false
                     if (screenMode == MODE_EDIT) {
-                        showSnackbar(this.root, getString(R.string.msg_success_editting))
+                        showSnackbar(this.root, getString(R.string.msg_success_editing))
                     } else if (screenMode == MODE_ADD) {
                         showSnackbar(this.root, getString(R.string.msg_success_adding))
                     }
