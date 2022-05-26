@@ -15,6 +15,8 @@ Technology stack:
 
 -Room
 
+-Retrofit2
+
 -Kotlin Flows
 
 -Cicerone
