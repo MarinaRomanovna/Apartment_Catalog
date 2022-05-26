@@ -38,7 +38,7 @@ class ApartmentActivity : AppCompatActivity() {
         ApartmentActivityBinding.inflate(layoutInflater).root.let(::setContentView)
 
         if (savedInstanceState == null) {
-            router.navigateTo(screenOpener.navigateToApartmentListFragment())
+            router.newRootScreen(screenOpener.navigateToApartmentListFragment())
         }
     }
 
