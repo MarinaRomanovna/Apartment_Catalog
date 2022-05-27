@@ -3,25 +3,43 @@
 This is simple CRUD application for adding, editting, reading, deleting apartment objects.
 App is under development.
 
+-The application is based on **MVVM architecture**.
+
+-I created my own **RESTful API with OAuth2** using the Laravel project with a passport (github link: **https://github.com/MarinaRomanovna/laravel-login-api**) for the authorization and registration screen.
+
+-Also I hosted this project on my working server using shared hosting. Link: **http://loginapi.h1n.ru/**.
+
+-We receive and save all credentials on the server using **Retrofit2**.
+
+-For CRUD operations and their saving I used the **Room database**.
+
+-Used **Kotlin flow** to interact Fragments with the View Model.
+
+-Application navigation is implemented using the **Cicerone library**.
+
+-To work with synchronous operations and error handling I used **RxJava3**.
+
+-Also I used **Dagger2** for dependency injection.
+
 Technology stack:
 
--MVVM
+**-MVVM**
 
--ViewBinding
+**-ViewBinding**
 
--RXJava3
+**-RXJava3**
 
--Dagger 2
+**-Dagger2**
 
--Room
+**-Room**
 
--Retrofit2
+**-Retrofit2**
 
--Kotlin Flows
+**-Kotlin Flows**
 
--Cicerone
+**-Cicerone**
 
--Material Design.
+**-Material Design**.
 
 Screenshots:
 
