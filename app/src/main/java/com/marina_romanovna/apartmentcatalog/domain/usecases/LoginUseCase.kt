@@ -13,4 +13,8 @@ class LoginUseCase @Inject constructor(
         return authRepository.login(email, password)
     }
 
+    suspend fun saveAuthToken(authToken: String){
+        return authRepository.saveAuthToken(authToken)
+    }
+
 }
