@@ -3,6 +3,8 @@ package com.marina_romanovna.apartmentcatalog.presentation.login
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -37,12 +39,17 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
         super.onViewCreated(view, savedInstanceState)
         _binding = LoginFragmentBinding.bind(view)
 
+        binding.circularLoader.isVisible = false
+        binding.btnEntry.isEnabled = false
+
         viewModel.state.observe(lifecycleScope) { loginState ->
+            binding.circularLoader.isVisible = false
             when (loginState) {
                 is LoginState.Failure -> {
                     showSnackbar(binding.root, "LoginState.Failure")
                 }
                 is LoginState.Success -> {
+                    viewModel.saveAuthToken(loginState.value.user.access_token)
                     viewModel.onAuthClick()
                 }
                 null -> {
@@ -51,9 +58,17 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
             }
         }
 
+        binding.etPassword.addTextChangedListener {
+            val email = binding.etLogin.text.toString().trim()
+            if (email.isNotEmpty() && it.toString().isNotEmpty()) {
+                binding.btnEntry.isEnabled = true
+            }
+        }
+
         binding.btnEntry.setOnClickListener {
             val email = binding.etLogin.text.toString()
             val password = binding.etPassword.text.toString()
+            binding.circularLoader.isVisible = true
             viewModel.login(email, password)
         }
     }

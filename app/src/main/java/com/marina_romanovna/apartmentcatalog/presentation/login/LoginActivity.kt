@@ -1,17 +1,17 @@
 package com.marina_romanovna.apartmentcatalog.presentation.login
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.lifecycle.asLiveData
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.marina_romanovna.apartmentcatalog.ApartmentApplication
 import com.marina_romanovna.apartmentcatalog.R
 import com.marina_romanovna.apartmentcatalog.cicerone.ScreenOpener
-import com.marina_romanovna.apartmentcatalog.data.userpreferences.UserPreferencesImpl
 import com.marina_romanovna.apartmentcatalog.databinding.LoginActivityBinding
+import com.marina_romanovna.apartmentcatalog.domain.UserPreferences
+import com.marina_romanovna.apartmentcatalog.utils.observe
 import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
@@ -25,6 +25,9 @@ class LoginActivity : AppCompatActivity() {
     @Inject
     lateinit var screenOpener: ScreenOpener
 
+    @Inject
+    lateinit var userPreferences: UserPreferences
+
     private val navigator = AppNavigator(this, R.id.loginContainer)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,14 +35,12 @@ class LoginActivity : AppCompatActivity() {
         LoginActivityBinding.inflate(layoutInflater).root.let(::setContentView)
         ApartmentApplication.dagger.inject(this)
 
-        if (savedInstanceState == null) {
-            router.replaceScreen(screenOpener.navigateToLoginFragment())
-        }
-
-        val userPreferences = UserPreferencesImpl(this)
-
-        userPreferences.authToken.asLiveData().observe(this) {
-            Toast.makeText(this, it ?: "token is null", Toast.LENGTH_LONG).show()
+        userPreferences.authToken.observe(lifecycleScope) { token ->
+            if (token == null) {
+                router.replaceScreen(screenOpener.navigateToLoginFragment())
+            } else {
+                router.replaceScreen(screenOpener.navigateToApartmentListFragment())
+            }
         }
     }
 

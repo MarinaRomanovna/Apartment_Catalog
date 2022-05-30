@@ -7,4 +7,6 @@ interface AuthRepository {
 
     fun login(email: String, password: String): Single<LoginResponse>
 
+    suspend fun saveAuthToken(authToken: String)
+
 }

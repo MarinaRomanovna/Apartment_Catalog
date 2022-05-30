@@ -6,24 +6,22 @@ import androidx.lifecycle.viewModelScope
 import com.github.terrakok.cicerone.Router
 import com.marina_romanovna.apartmentcatalog.cicerone.ScreenOpener
 import com.marina_romanovna.apartmentcatalog.data.responses.LoginResponse
-import com.marina_romanovna.apartmentcatalog.domain.UserPreferences
 import com.marina_romanovna.apartmentcatalog.domain.usecases.LoginUseCase
 import com.marina_romanovna.apartmentcatalog.utils.BaseViewModel
 import com.marina_romanovna.apartmentcatalog.utils.eventWithNull
 import com.marina_romanovna.apartmentcatalog.utils.get
 import com.marina_romanovna.apartmentcatalog.utils.states.LoginState
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
-import timber.log.Timber
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
     private val router: Router,
     private val screenOpener: ScreenOpener,
-    private val loginUseCase: LoginUseCase,
-    private val userPreferences: UserPreferences
+    private val loginUseCase: LoginUseCase
 ) : BaseViewModel() {
 
     private val _state = eventWithNull<LoginState<LoginResponse>?>(null)
@@ -56,14 +54,12 @@ class LoginViewModel @Inject constructor(
                 },
                 onSuccess = { loginResponse ->
                     _state.value = LoginState.Success(loginResponse)
-                    saveAuthToken(loginResponse.user.access_token)
                 })
     }
 
-    private fun saveAuthToken(authToken: String) {
-        viewModelScope.launch {
-            userPreferences.saveAuthToken(authToken)
-            Timber.d(userPreferences.toString())
+    fun saveAuthToken(authToken: String): Job {
+        return viewModelScope.launch {
+            loginUseCase.saveAuthToken(authToken)
         }
     }
 
@@ -71,16 +67,14 @@ class LoginViewModel @Inject constructor(
     class Factory @Inject constructor(
         private val router: Router,
         private val screenOpener: ScreenOpener,
-        private val loginUseCase: LoginUseCase,
-        private val userPreferences: UserPreferences
+        private val loginUseCase: LoginUseCase
     ) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return LoginViewModel(
                 router = router,
                 screenOpener = screenOpener,
-                loginUseCase = loginUseCase,
-                userPreferences = userPreferences
+                loginUseCase = loginUseCase
             ) as T
         }
     }
