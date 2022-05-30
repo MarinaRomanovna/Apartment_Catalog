@@ -2,12 +2,15 @@ package com.marina_romanovna.apartmentcatalog.presentation.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.lifecycle.asLiveData
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.marina_romanovna.apartmentcatalog.ApartmentApplication
 import com.marina_romanovna.apartmentcatalog.R
 import com.marina_romanovna.apartmentcatalog.cicerone.ScreenOpener
+import com.marina_romanovna.apartmentcatalog.data.userpreferences.UserPreferencesImpl
 import com.marina_romanovna.apartmentcatalog.databinding.LoginActivityBinding
 import javax.inject.Inject
 
@@ -31,6 +34,12 @@ class LoginActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             router.replaceScreen(screenOpener.navigateToLoginFragment())
+        }
+
+        val userPreferences = UserPreferencesImpl(this)
+
+        userPreferences.authToken.asLiveData().observe(this) {
+            Toast.makeText(this, it ?: "token is null", Toast.LENGTH_LONG).show()
         }
     }
 

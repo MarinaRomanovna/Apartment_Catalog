@@ -67,8 +67,7 @@ dependencies {
 
     implementation 'com.github.terrakok:cicerone:7.1'
 
-    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
-    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
 
     implementation "com.jakewharton.timber:timber:4.7.1"
 

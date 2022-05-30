@@ -12,7 +12,6 @@ import com.marina_romanovna.apartmentcatalog.databinding.LoginFragmentBinding
 import com.marina_romanovna.apartmentcatalog.utils.observe
 import com.marina_romanovna.apartmentcatalog.utils.showSnackbar
 import com.marina_romanovna.apartmentcatalog.utils.states.LoginState
-import timber.log.Timber
 import javax.inject.Inject
 
 class LoginFragment : Fragment(R.layout.login_fragment) {
@@ -40,14 +39,16 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
 
         viewModel.state.observe(lifecycleScope) { loginState ->
             when (loginState) {
-                LoginState.Success -> {
-                    showSnackbar(binding.root, "LoginState.Success")
+                is LoginState.Failure -> {
+                    showSnackbar(binding.root, "LoginState.Failure")
+                }
+                is LoginState.Success -> {
                     viewModel.onAuthClick()
                 }
-                LoginState.Error -> showSnackbar(binding.root, "LoginState.Error")
-                LoginState.Loading -> showSnackbar(binding.root, "LoginState.Loading")
+                null -> {
+                    showSnackbar(binding.root, "LoginState.Loading")
+                }
             }
-
         }
 
         binding.btnEntry.setOnClickListener {
