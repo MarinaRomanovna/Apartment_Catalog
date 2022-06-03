@@ -1,5 +1,9 @@
 # Apartment_Catalog
 
+For logining use:
+Login: admin@admin.ru
+Password: 12345678
+
 This is simple CRUD application for adding, editting, reading, deleting apartment objects.
 App is under development.
 
