@@ -29,10 +29,14 @@
     <string name="msg_entering">Войдите\nдля\nпродолжения</string>
     <string name="hint_login">ЛОГИН</string>
     <string name="hint_password">ПАРОЛЬ</string>
-    <string name="msg_enter_number_email">Введите адрес эл. почты</string>
+    <string name="msg_enter_email">Введите адрес эл. почты</string>
     <string name="msg_enter_password">Введите пароль</string>
     <string name="error_login_password">Неверный логин или пароль</string>
     <string name="tv_remember_me">Запомнить меня</string>
     <string name="tv_forgot_password">Забыли пароль?</string>
     <string name="tv_sign_up">Впервые здесь? Регистрация</string>
+    <string name="registration">Регистрация</string>
+    <string name="hint_name">ИМЯ</string>
+    <string name="msg_enter_name">Введите Ваше имя</string>
+    <string name="btn_registration">Зарегистрироваться</string>
 </resources>

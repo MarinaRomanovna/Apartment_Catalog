@@ -8,6 +8,8 @@ interface ScreenOpener {
 
     fun navigateToLoginFragment(): Screen
 
+    fun navigateToRegisterFragment(): Screen
+
     fun navigateToApartmentActivity(): Screen
 
     fun navigateToApartmentListFragment(): Screen
