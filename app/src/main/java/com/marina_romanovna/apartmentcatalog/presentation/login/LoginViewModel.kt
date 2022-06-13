@@ -31,6 +31,10 @@ class LoginViewModel @Inject constructor(
         router.replaceScreen(screenOpener.navigateToApartmentActivity())
     }
 
+    fun onRegistrationClick(){
+        router.replaceScreen(screenOpener.navigateToRegisterFragment())
+    }
+
     fun login(email: String, password: String) {
         loginUseCase.execute(email, password)
             .get(disposables,

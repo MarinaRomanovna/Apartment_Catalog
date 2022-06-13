@@ -8,6 +8,7 @@ import com.marina_romanovna.apartmentcatalog.presentation.apartment.addedititem.
 import com.marina_romanovna.apartmentcatalog.presentation.apartment.detail.ApartmentDetailFragment
 import com.marina_romanovna.apartmentcatalog.presentation.apartment.list.ApartmentListFragment
 import com.marina_romanovna.apartmentcatalog.presentation.login.LoginFragment
+import com.marina_romanovna.apartmentcatalog.presentation.login.RegisterFragment
 import javax.inject.Inject
 
 class ScreenOpenerImpl @Inject constructor() : ScreenOpener {
@@ -21,6 +22,12 @@ class ScreenOpenerImpl @Inject constructor() : ScreenOpener {
     override fun navigateToLoginFragment(): Screen {
         return FragmentScreen {
             LoginFragment.newInstance()
+        }
+    }
+
+    override fun navigateToRegisterFragment(): Screen {
+        return FragmentScreen {
+            RegisterFragment.newInstance()
         }
     }
 

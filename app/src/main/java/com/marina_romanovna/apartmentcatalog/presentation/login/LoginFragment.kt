@@ -71,6 +71,10 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
             binding.circularLoader.isVisible = true
             viewModel.login(email, password)
         }
+
+        binding.tvSignup.setOnClickListener {
+            viewModel.onRegistrationClick()
+        }
     }
 
     override fun onDestroyView() {

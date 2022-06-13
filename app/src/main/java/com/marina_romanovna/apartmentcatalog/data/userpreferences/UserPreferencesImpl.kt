@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class UserPreferencesImpl @Inject constructor(
     private val context: Context
-) : UserPreferences() {
+) : UserPreferences {
 
     companion object {
         private const val USER_PREFERENCES = "app_prefs"
